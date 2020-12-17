@@ -1,0 +1,25 @@
+{
+  "name": "discord-emoji-converter",
+  "version": "1.0.0",
+  "description": "Module to convert Discord emoji shortcodes to emoji characters, and vice versa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArkinSolomon/discord-emoji-converter.git"
+  },
+  "keywords": [
+    "discord",
+    "emoji",
+    "shortcode",
+    "shortcodes"
+  ],
+  "author": "Arkin Solomon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArkinSolomon/discord-emoji-converter/issues"
+  },
+  "homepage": "https://github.com/ArkinSolomon/discord-emoji-converter#readme"
+}
