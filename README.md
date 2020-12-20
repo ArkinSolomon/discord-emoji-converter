@@ -11,8 +11,12 @@ This may work for other platforms, however they are built according to Discord's
 
 #### emojis
 
-This constant is the main data object with shortcodes (not including colons) as keys, and emoji characters as values. Found in [emojis.json](insert link to file in here).
+This constant is the main data object with shortcodes (not including colons) as keys, and emoji characters as values. Found in [emojis.json](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/emojis.json).
 
 ## Credits
 
-The [data.json](insert link to file in here) is a modified version of a JSON file scraped and created by [kangalioo](https://github.com/kangalioo) and the full, unmodified file can be found [here](https://gist.github.com/kangalioo/5e0f19e8145587c05e219597fbd2d352).
+The [data.json](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/data.json) is a modified and minified version of a JSON file scraped and created by [kangalioo](https://github.com/kangalioo) and the full, unmodified file can be found [here](https://gist.github.com/kangalioo/5e0f19e8145587c05e219597fbd2d352).
+
+## License
+
+Licensed under the MIT License. View license [here](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/LICENSE).
