@@ -26,3 +26,17 @@ module.exports.getEmoji = shortcode => {
   //Return it if it does exist
   return emoji;
 };
+
+//Get the shortcode of an emoji with or without colons
+module.exports.getShortcode = (emoji, addColons = true) => {
+  emoji = emoji.trim();
+
+  //Check if a shortcode exists for the given character
+  var shortcode = Object.keys(emojis).find(k => emojis[k] === emoji);
+  if (typeof shortcode === 'undefined'){
+    throw new Error('Shortcode doesn\'t exist');
+  }
+
+  //If a shortcode exists, return it (add colons if requested)
+  return addColons ? `:${shortcode}:` : shortcode;
+};
