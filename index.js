@@ -5,6 +5,7 @@
 //Require modules
 const fs = require('fs');
 const path = require('path');
+const {EmojiError} = require(path.join(__dirname, 'emojiError.js'))
 
 //Load emojis into memory
 const emojis = JSON.parse(fs.readFileSync(path.join(__dirname, 'emojis.json'), 'utf8'));
@@ -20,7 +21,7 @@ module.exports.getEmoji = shortcode => {
   //Check if the emoji character exists
   var emoji = emojis[shortcode];
   if (typeof emoji === 'undefined'){
-    throw new Error('Emoji doesn\'t exist');
+    throw new EmojiError('Emoji doesn\'t exist');
   }
 
   //Return it if it does exist
@@ -34,9 +35,12 @@ module.exports.getShortcode = (emoji, addColons = true) => {
   //Check if a shortcode exists for the given character
   var shortcode = Object.keys(emojis).find(k => emojis[k] === emoji);
   if (typeof shortcode === 'undefined'){
-    throw new Error('Shortcode doesn\'t exist');
+    throw new EmojiError('Shortcode doesn\'t exist');
   }
 
   //If a shortcode exists, return it (add colons if requested)
   return addColons ? `:${shortcode}:` : shortcode;
 };
+
+//Export error
+module.exports.EmojiError = EmojiError;

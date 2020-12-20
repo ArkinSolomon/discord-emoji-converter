@@ -29,9 +29,16 @@ console.log(getShortcode('😭      ', false));
 console.log(getShortcode('😠', false));
 console.log(getShortcode('      😂  '));
 
-//Emojis that don't exist
+//Emoji that don't exist
 try{
   console.log(getEmoji('i_dont_exist'));
+}catch(e){
+  console.error(e);
+}
+
+//Short code that doesn't exist
+try{
+  console.log(getEmoji('=)'));
 }catch(e){
   console.error(e);
 }
