@@ -42,5 +42,29 @@ module.exports.getShortcode = (emoji, addColons = true) => {
   return addColons ? `:${shortcode}:` : shortcode;
 };
 
+//Take a string and convert all shortcodes in it to emoji characters
+module.exports.emojify = str => {
+
+  //Get all shortcodes
+  var shortcodes = str.match(/:[^\s:]+:/g);
+
+  //Replace the shortcodes
+  for (let shortcode of shortcodes){
+    try{
+      str = str.replace(shortcode, module.exports.getEmoji(shortcode));
+    }catch(e){
+
+      //Handle error
+      if (e instanceof EmojiError){
+        continue;
+      }else{
+        throw e;
+      }
+    }
+  }
+
+  return str;
+}
+
 //Export error
 module.exports.EmojiError = EmojiError;

@@ -13,7 +13,11 @@ This function converts a given shortcode to an emoji character and returns it. I
 
 #### converter.getShortcode(emoji[, addColons=true])
 
-This function converts a given emoji character and returns the shortcode of the given emoji. It takes an argument `emoji` which is a string of the emoji character to get the shortcode of. It also takes an optional argument `addColons`, which, if false, will not add colons to either side of the shortcode. By default, it is set to true. If the given value for `emoji` is not mapped to a short code, it will throw an `EmojiError`.
+This function converts a given emoji character and returns the shortcode of the given emoji. It takes an argument: `emoji`, which is a string of the emoji character to get the shortcode. It also takes an optional argument `addColons`, which, if false, will not add colons to either side of the shortcode. By default, it is set to true. If the given value for `emoji` is not mapped to a short code, it will throw an `EmojiError`.
+
+### converter.emojify(str)
+
+This function replaces all shortcodes (that are wrapped in colons) with emoji characters. It takes one argument: `str`, which is the string to "emojify" or replace shortcodes in. Any shortcodes that do not exist are simply skipped. This function does not trim or change the capitalization of the string. It does not throw any custom errors.
 
 ### Constants
 
