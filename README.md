@@ -7,15 +7,15 @@ This may work for other platforms, however they are built according to Discord's
 
 ### Functions
 
-#### converter.getEmoji(shortcode)
+#### `converter.getEmoji(shortcode)`
 
 This function converts a given shortcode to an emoji character and returns it. It takes one argument: `shortcode`, which is the emoji shortcode of the emoji to get. If the given shortcode does not exist, that is, it does not match to an emoji character, it will throw an `EmojiError`.
 
-#### converter.getShortcode(emoji[, addColons=true])
+#### `converter.getShortcode(emoji[, addColons=true])`
 
 This function converts a given emoji character and returns the shortcode of the given emoji. It takes an argument: `emoji`, which is a string of the emoji character to get the shortcode. It also takes an optional argument `addColons`, which, if false, will not add colons to either side of the shortcode. By default, it is set to true. If the given value for `emoji` is not mapped to a short code, it will throw an `EmojiError`.
 
-### converter.emojify(str)
+### `converter.emojify(str)`
 
 This function replaces all shortcodes (that are wrapped in colons) with emoji characters. It takes one argument: `str`, which is the string to "emojify" or replace shortcodes in. Any shortcodes that do not exist are simply skipped. This function does not trim or change the capitalization of the string. It does not throw any custom errors.
 
