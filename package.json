@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Module to convert Discord emoji shortcodes to emoji characters, and vice versa.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
