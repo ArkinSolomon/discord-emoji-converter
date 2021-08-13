@@ -33,7 +33,7 @@ This error is a generic error message class, taking a single argument: `message`
 
 ## Credits
 
-The [data.json](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/data.json) is a modified and minified version of a JSON file scraped and created by [kangalioo](https://github.com/kangalioo) and the full, unmodified file can be found [here](https://gist.github.com/kangalioo/5e0f19e8145587c05e219597fbd2d352).
+Originally data was retrieved from [kangalioo](https://github.com/kangalioo), however, now (as of v1.2.0) data is retrieved from the [discord-emoji](https://www.npmjs.com/package/discord-emoji) package on NPM.
 
 ## License
 
