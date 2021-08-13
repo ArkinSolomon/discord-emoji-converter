@@ -1,6 +1,6 @@
 /*
- * Running this file will regenerate `emojis.json` from `data.json`. Run this
- * file if for some reason `emojis.json` does not exist, otherwise, the module
+ * Running this file will generate `emojis.json` from `data.json`. Run this file
+ * if for some reason `emojis.json` does not exist, otherwise, the module
  * will not work.
  */
 
