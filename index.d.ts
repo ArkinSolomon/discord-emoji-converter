@@ -4,6 +4,6 @@ export const getShortcode: (emoji: string, addColons?: boolean) => string;
 export const emojify: (str: string) => string;
 
 export class EmojiError extends Error {
-  public name = 'EmojiError';
+  public readonly name = 'EmojiError';
   public constructor(message?: string);
 }

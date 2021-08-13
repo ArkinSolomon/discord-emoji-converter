@@ -1,50 +1,98 @@
 /*
- * Basic tests used to... well test...
+ * Use mocha to run tests and ensure package is working properly.
  */
 
 //Import modules
-const fs = require('fs');
 const path = require('path');
+const assert = require('assert');
+
+//Import this package files
 const converter = require(path.join(__dirname, 'index.js'));
+const {EmojiError} = require(path.join(__dirname, 'emojiError.js'));
 
 //Get a few emojis manually
-console.log(converter.emojis['sparkling_heart']);
-console.log(converter.emojis['metal_tone5']);
-console.log(converter.emojis['smiling_imp']);
-console.log(converter.emojis['grin']);
-console.log(converter.emojis['laughing']);
-console.log(converter.emojis['satisfied']);
+describe('Get emojis manually',  function(){
+  it('Should output "💖"', function(){
+    assert.equal(converter.emojis['sparkling_heart'], '💖');
+  });
+  it('Should output "🤘🏿"', function(){
+    assert.equal(converter.emojis['metal_tone5'], '🤘🏿');
+  });
+  it('Should output "😁"', function(){
+    assert.equal(converter.emojis['grin'], '😁');
+  });
+  it('Should output "😆"', function(){
+    assert.equal(converter.emojis['laughing'], '😆');
+  });
+  it('Should output "😆"', function(){
+    assert.equal(converter.emojis['satisfied'], '😆');
+  });
+});
 
 //Get a few emojis with functions
-console.log(converter.getEmoji('clap_tone2'));
-console.log(converter.getEmoji(':popcorn:'));
-console.log(converter.getEmoji('rOFl'));
-console.log(converter.getEmoji('   :sob:  '));
-console.log(converter.getEmoji('pensive  '));
+describe('Get emojis with functions',  function(){
+  it('Should output "👏🏼"', function(){
+    assert.equal(converter.getEmoji('clap_tone2'), '👏🏼');
+  });
+  it('Should output "🍿"', function(){
+    assert.equal(converter.getEmoji(':popcorn:'), '🍿');
+  });
+  it('Should output "🤣"', function(){
+    assert.equal(converter.getEmoji('rOFl'), '🤣');
+  });
+  it('Should output "😭"', function(){
+    assert.equal(converter.getEmoji('   :sob:  '), '😭');
+  });
+  it('Should output "😔"', function(){
+    assert.equal(converter.getEmoji('pensive  '), '😔');
+  });
+});
 
 //Get some shortcodes with functions
-console.log(converter.getShortcode('😃'));
-console.log(converter.getShortcode('😭      '));
-console.log(converter.getShortcode('😭      ', false));
-console.log(converter.getShortcode('😠', false));
-console.log(converter.getShortcode('      😂  '));
+describe('Get shortcodes with functions',  function(){
+  it('Should output ":smiley:"', function(){
+    assert.equal(converter.getShortcode('😃'), ':smiley:');
+  });
+  it('Should output ":sob:"', function(){
+    assert.equal(converter.getShortcode(' 😭      '), ':sob:');
+  });
+  it('Should output "sob"', function(){
+    assert.equal(converter.getShortcode('😭      ', false), 'sob');
+  });
+  it('Should output "angry"', function(){
+    assert.equal(converter.getShortcode('😠', false), 'angry');
+  });
+  it('Should output ":joy:"', function(){
+    assert.equal(converter.getShortcode('      😂  '), ':joy:');
+  });
+});
 
 //Emojify some strings
-console.log(converter.emojify('The quick brown :brown_square: fox :fox:  jumped over the :lazy: dog :dog:'));
-console.log(converter.emojify('The doggo :doggo: is cute'));
-console.log(converter.emojify(':satisfied:'));
-console.log(converter.emojify('==\n  b o i   \n:boi:\n:boy:boy:\n=='));
+describe('Emojify some strings',  function(){
+  it('Should output "The quick brown 🟫 fox 🦊  jumped over the :lazy: dog 🐶"', function(){
+    assert.equal(converter.emojify('The quick brown :brown_square: fox :fox:  jumped over the :lazy: dog :dog:'), 'The quick brown 🟫 fox 🦊  jumped over the :lazy: dog 🐶');
+  });
+  it('Should output "The doggo :doggo: is cute"', function(){
+    assert.equal(converter.emojify('The doggo :doggo: is cute'), 'The doggo :doggo: is cute');
+  });
+  it('Should output "😆"', function(){
+    assert.equal(converter.emojify(':satisfied:'), '😆');
+  });
+  it('Should only convert the first shortcode on the last line', function(){
+    assert.equal(converter.emojify('==\n  Boy   \n:boi:\n:boy:boy:\n=='), '==\n  Boy   \n:boi:\n👦boy:\n==');
+  });
+});
 
-//Try an emoji that doesn't exist
-try{
-  console.log(converter.getEmoji('i_dont_exist'));
-}catch(e){
-  console.error(e);
-}
+//Throw an EmojiError for an emoji that doesn't exist
+describe('Throw an EmojiError for an emoji that doesn\'t exist',  function(){
+  it('Should throw an EmojiError saying that the emoji doesn\'t exist', function(){
+    assert.throws(() => converter.getEmoji('i_dont_exist'), EmojiError, 'Shortcode doesn\'t exist');
+  });
+});
 
-//Try a shortcode that doesn't exist
-try{
-  console.log(converter.getEmoji('=)'));
-}catch(e){
-  console.error(e);
-}
+//Throw an EmojiError for an shortcode that doesn't exist
+describe('Throw an EmojiError for an shortcode that doesn\'t exist',  function(){
+  it('Should throw an EmojiError saying that the shortcode doesn\'t exist', function(){
+    assert.throws(() => converter.getShortcode('=)'), EmojiError, 'Emoji doesn\'t exist');
+  });
+});

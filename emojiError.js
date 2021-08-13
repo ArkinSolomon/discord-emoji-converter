@@ -2,10 +2,17 @@
  * This file simply contains a custom error class for catching emoji errors.
  */
 
-//Custom error class
+/**
+ * @typedef {Error} EmojiError Any errors thrown by this npm module will be of this type.
+ */
 class EmojiError extends Error {
 
-  //Basic class constructor
+  /**
+   * Create a new EmojiError. The default message is blank.
+   * 
+   * @constructor
+   * @param {string} [message=] The error message.
+   */
   constructor(message=''){
     super(message);
     this.name = 'EmojiError';
