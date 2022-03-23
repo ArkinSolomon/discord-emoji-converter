@@ -14,9 +14,9 @@ var emojis = {};
 
 //Get all of the categories and assign each entry in each category to the emojis variable
 const categories = Object.keys(discordEmoji);
-for (let category of categories){
+for (let category of categories) {
   const categoryData = discordEmoji[category];
-  for (let entry of Object.entries(categoryData)){
+  for (let entry of Object.entries(categoryData)) {
     emojis[entry[0]] = entry[1];
   }
 }

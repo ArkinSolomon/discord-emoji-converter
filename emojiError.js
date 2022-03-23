@@ -13,7 +13,7 @@ class EmojiError extends Error {
    * @constructor
    * @param {string} [message=] The error message.
    */
-  constructor(message=''){
+  constructor(message = '') {
     super(message);
     this.name = 'EmojiError';
   }
