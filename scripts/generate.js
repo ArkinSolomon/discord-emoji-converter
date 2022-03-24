@@ -4,8 +4,7 @@
  * https://github.com/amethyst-studio/discord-emoji, assuming the module is up
  * to date.
  */
-
-//Require modules
+const path = require('path')
 const fs = require('fs');
 const discordEmoji = require('discord-emoji')
 
@@ -22,4 +21,4 @@ for (let category of categories) {
 }
 
 //Write the data to `emojis.json`
-fs.writeFileSync('emojis.json', JSON.stringify(emojis), 'utf8');
+fs.writeFileSync(path.resolve(__dirname, '..', 'emojis.json'), JSON.stringify(emojis), 'utf8');

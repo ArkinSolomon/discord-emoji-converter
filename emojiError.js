@@ -11,7 +11,7 @@ class EmojiError extends Error {
    * Create a new EmojiError. The default message is blank.
    * 
    * @constructor
-   * @param {string} [message=] The error message.
+   * @param {string} [message=''] The error message.
    */
   constructor(message = '') {
     super(message);

@@ -1,12 +1,11 @@
 /*
  * Use mocha to run tests and ensure package is working properly.
  */
-
-//Import modules
 const assert = require('assert');
+const path = require('path')
 
 //Import this package files
-const converter = require('./index.js');
+const converter = require(path.resolve(__dirname, '..', 'index.js'));
 
 //Get a few emojis manually
 describe('Get emojis manually', function () {

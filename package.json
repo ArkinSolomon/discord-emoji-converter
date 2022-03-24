@@ -5,7 +5,9 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha scripts/test.js",
+    "generate": "node scripts/generate.js",
+    "build": "node scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,9 @@
     "url": "https://github.com/ArkinSolomon/discord-emoji-converter/issues"
   },
   "homepage": "https://github.com/ArkinSolomon/discord-emoji-converter#readme",
-  "dependencies": {
-    "discord-emoji": "^2.0.5"
-  },
   "devDependencies": {
-    "mocha": "^9.0.3"
+    "discord-emoji": "^2.0.5",
+    "mocha": "^9.0.3",
+    "terser": "^5.12.1"
   }
 }

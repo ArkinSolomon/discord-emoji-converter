@@ -4,7 +4,7 @@
 
 //Require modules
 const fs = require('fs');
-const {EmojiError} = require('./emojiError.js')
+const {EmojiError} = require('./emojiError.js');
 
 //Load emojis into memory
 const emojis = JSON.parse(fs.readFileSync('./emojis.json', 'utf8'));
