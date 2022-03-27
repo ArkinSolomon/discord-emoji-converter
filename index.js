@@ -4,10 +4,11 @@
 
 //Require modules
 const fs = require('fs');
-const {EmojiError} = require('./emojiError.js');
+const path = require('path');
+const { EmojiError } = require(path.resolve(__dirname, 'emojiError.js'));
 
 //Load emojis into memory
-const emojis = JSON.parse(fs.readFileSync('./emojis.json', 'utf8'));
+const emojis = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'emojis.json'), 'utf8'));
 module.exports.emojis = emojis;
 
 /**
@@ -25,7 +26,7 @@ module.exports.getEmoji = shortcode => {
 
   //Check if the emoji character exists
   var emoji = emojis[shortcode];
-  if (typeof emoji === 'undefined'){
+  if (typeof emoji === 'undefined') {
     throw new EmojiError('Shortcode doesn\'t exist');
   }
 
@@ -46,7 +47,7 @@ module.exports.getShortcode = (emoji, addColons = true) => {
 
   //Check if a shortcode exists for the given character
   var shortcode = Object.keys(emojis).find(k => emojis[k] === emoji);
-  if (typeof shortcode === 'undefined'){
+  if (typeof shortcode === 'undefined') {
     throw new EmojiError('Emoji doesn\'t exist');
   }
 
@@ -66,10 +67,10 @@ module.exports.emojify = str => {
   var shortcodes = str.match(/:[^\s:]+:/g);
 
   //Replace the shortcodes
-  for (let shortcode of shortcodes){
-    try{
+  for (let shortcode of shortcodes) {
+    try {
       str = str.replace(shortcode, module.exports.getEmoji(shortcode));
-    }catch(e){
+    } catch (e) {
 
       //Ignore errors
       continue;

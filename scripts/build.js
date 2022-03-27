@@ -15,8 +15,9 @@ const emojiError = fs.readFileSync(path.resolve(__dirname, '..', 'emojiError.js'
 const emojisJson = fs.readFileSync(path.resolve(__dirname, '..', 'emojis.json'), 'utf8');
 output = '"use strict";\nconst converter = {};\n' + output
   .replace("const fs = require('fs');", '')
-  .replace("const {EmojiError} = require('./emojiError.js');", emojiError.replace('module.exports.EmojiError = EmojiError;', ''))
-  .replace("JSON.parse(fs.readFileSync('./emojis.json', 'utf8'))", emojisJson)
+  .replace("const path = require('path');", '')
+  .replace("const { EmojiError } = require(path.resolve(__dirname, 'emojiError.js'));", emojiError.replace('module.exports.EmojiError = EmojiError;', '')) //Add emoji error instead of the import statment
+  .replace("JSON.parse(fs.readFileSync(path.resolve(__dirname, 'emojis.json'), 'utf8'));", emojisJson)
   .replace(/module\.exports/g, 'converter')
 
   //Remove comments
