@@ -35,6 +35,10 @@ This error is a generic error message class, taking a single argument: `message`
 
 Originally data was retrieved from [kangalioo](https://github.com/kangalioo), however, now (as of v1.2.0) data is retrieved from the [discord-emoji](https://www.npmjs.com/package/discord-emoji) package on NPM.
 
+* @ArkinSolomon -- Original author 
+* @Lioness100 -- Typescript documentation
+* @Sly-Little-Fox -- Bug fixes
+
 ## License
 
 Licensed under the MIT License. View license [here](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/LICENSE).
