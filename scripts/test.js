@@ -84,6 +84,9 @@ describe('Emojify some strings', function () {
   it('Should only convert the first shortcode on the last line', function () {
     assert.equal(converter.emojify('==\n  Boy   \n:boi:\n:boy:boy:\n=='), '==\n  Boy   \n:boi:\n👦boy:\n==');
   });
+  it('Should output "hi"', function () {
+    assert.equal(converter.emojify('hi'), 'hi');
+  });
 });
 
 //Throw an EmojiError for an emoji that doesn't exist
