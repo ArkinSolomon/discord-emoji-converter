@@ -64,7 +64,7 @@ module.exports.getShortcode = (emoji, addColons = true) => {
 module.exports.emojify = str => {
 
   //Get all shortcodes
-  var shortcodes = str.match(/:[^\s:]+:/g);
+  var shortcodes = str.match(/:[^\s:]+:/g) || [];
 
   //Replace the shortcodes
   for (let shortcode of shortcodes) {
