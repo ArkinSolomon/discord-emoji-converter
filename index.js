@@ -66,7 +66,7 @@ module.exports.emojify = str => {
   // Replace all shortcodes
   var result = str.replace(/:[^\s:]+:/g, (shortcode) => {
     try {
-      return module.exports.getEmoji(shortcode);
+      return module.exports.getEmoji(shortcode, true);
     } catch (err) {
       if (err instanceof EmojiError) {
         return shortcode;
