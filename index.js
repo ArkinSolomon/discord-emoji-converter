@@ -64,7 +64,15 @@ module.exports.getShortcode = (emoji, addColons = true) => {
 module.exports.emojify = str => {
 
   // Replace all shortcodes
-  var result = str.replace(/:[^\s:]+:/g, (shortcode) => module.exports.getEmoji(shortcode));
+  var result = str.replace(/:[^\s:]+:/g, (shortcode) => {
+    try {
+      return module.exports.getEmoji(shortcode);
+    } catch (err) {
+      if (err instanceof EmojiError) {
+        return shortcode;
+      }
+    }
+  });
 
   return result;
 }
@@ -79,7 +87,15 @@ module.exports.demojify = str => {
   
   
   // Replace all shortcodes
-  var result = str.replace(emojiRegex, (emoji) => module.exports.getShortcode(emoji));
+  var result = str.replace(emojiRegex, (emoji) => {
+    try {
+      return module.exports.getShortcode(emoji);
+    } catch (err) {
+      if (err instanceof EmojiError) {
+        return shortcode;
+      }
+    }
+  });
 
   return result;
 }

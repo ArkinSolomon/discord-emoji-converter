@@ -89,6 +89,19 @@ describe('Emojify some strings', function () {
   });
 });
 
+//Demojify some strings
+describe('Demojify some strings', function () {
+  it('Should output "The quick brown :brown_square: fox :fox:  jumped over the :lazy: dog :dog:"', function () {
+    assert.equal(converter.demojify('The quick brown 🟫 fox 🦊  jumped over the :lazy: dog 🐶'), 'The quick brown :brown_square: fox :fox:  jumped over the :lazy: dog :dog:');
+  });
+  it('Should output "The doggo :doggo: is cute"', function () {
+    assert.equal(converter.demojify('The doggo :doggo: is cute'), 'The doggo :doggo: is cute');
+  });
+  it('Should output "hi"', function () {
+    assert.equal(converter.demojify('hi'), 'hi');
+  });
+});
+
 //Throw an EmojiError for an emoji that doesn't exist
 describe('Throw an EmojiError for an emoji that doesn\'t exist', function () {
   it('Should throw an EmojiError saying that the emoji doesn\'t exist', function () {
