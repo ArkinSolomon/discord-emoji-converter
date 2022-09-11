@@ -19,6 +19,10 @@ This function converts a given emoji character and returns the shortcode of the 
 
 This function replaces all shortcodes (that are wrapped in colons) with emoji characters. It takes one argument: `str`, which is the string to "emojify" or replace shortcodes in. Any shortcodes that do not exist are simply skipped. This function does not trim or change the capitalization of the string. It does not throw any custom errors.
 
+### `converter.demojify(str)`
+
+This function does the reverse of `emojify`: it replaces all emojis with shortcodes. It takes one argument: `str`, which is the string to "demojify" or replace emojis in. Any emojis that are not supported are simply skipped. This function does not trim or change the capitalization of the string. It does not throw any custom errors.
+
 ### Constants
 
 #### converter.emojis
@@ -38,6 +42,7 @@ Originally data was retrieved from [kangalioo](https://github.com/kangalioo), ho
 * @ArkinSolomon -- Original author 
 * @Lioness100 -- Typescript documentation
 * @Sly-Little-Fox -- Bug fixes
+* @immjs -- Added Demojify
 
 ## License
 

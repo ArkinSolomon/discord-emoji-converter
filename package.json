@@ -1,6 +1,6 @@
 {
   "name": "discord-emoji-converter",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Module to convert Discord emoji shortcodes to emoji characters, and vice versa.",
   "main": "index.js",
   "types": "index.d.ts",
