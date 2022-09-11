@@ -25,13 +25,13 @@ This function does the reverse of `emojify`: it replaces all emojis with shortco
 
 ### Constants
 
-#### converter.emojis
+#### `converter.emojis`
 
 This constant is the main data object with shortcodes (not including colons) as keys, and emoji characters as values. Found in [emojis.json](https://github.com/ArkinSolomon/discord-emoji-converter/blob/master/emojis.json).
 
 ### Errors
 
-#### converter.EmojiError
+#### `converter.EmojiError`
 
 This error is a generic error message class, taking a single argument: `message`, which is a string representing the message of the new error. The default value is `''`. Basically, it's `Error` but called `EmojiError`.
 
