@@ -32,6 +32,6 @@
     "terser": "^5.12.1"
   },
   "dependencies": {
-    "emoji-regex": "^10.2.1"
-  }
+    "emoji-regex": "^10.2.1"
+  }
 }
