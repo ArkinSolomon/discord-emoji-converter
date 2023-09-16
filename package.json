@@ -3,6 +3,7 @@
   "version": "1.2.9",
   "description": "Module to convert Discord emoji shortcodes to emoji characters, and vice versa.",
   "main": "index.js",
+  "type": "commonjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "mocha scripts/test.js",
@@ -27,7 +28,7 @@
   },
   "homepage": "https://github.com/ArkinSolomon/discord-emoji-converter#readme",
   "devDependencies": {
-    "discord-emoji": "^2.2.0",
+    "discord-emoji": "^2.3.0",
     "mocha": "^9.0.3",
     "terser": "^5.12.1"
   }
